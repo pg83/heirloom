@@ -106,7 +106,7 @@
 /*
  * Output format options
  */
-int	opt;
+EXTERN int	opt;
 
 #define	D_NORMAL	0	/* Normal output */
 #define	D_EDIT		-1	/* Editor script out */
@@ -139,7 +139,7 @@ EXTERN int	sflag;			/* announce files which are same */
 EXTERN int	Nflag;			/* write text of nonexistant files */
 EXTERN const char	*start;		/* do file only if name >= this */
 
-struct xclusion {
+EXTERN struct xclusion {
 	struct xclusion	*x_nxt;
 	const char	*x_pat;
 }	*xflag;			/* patterns to exclude from comparison */
@@ -173,7 +173,7 @@ EXTERN char	**diffargv;		/* option list to pass to recursive diffs */
 EXTERN int	recdepth;		/* recursion depth */
 EXTERN jmp_buf	recenv;			/* jump stack on error */
 
-struct stackblk {
+EXTERN struct stackblk {
 	struct stackblk	*s_prev;
 	struct stackblk	*s_next;
 } *curstack;
@@ -185,7 +185,7 @@ struct stackblk {
  * the '/'.
  */
 EXTERN char	*file1, *file2, *efile1, *efile2;
-struct	stat stb1, stb2;
+EXTERN struct	stat stb1, stb2;
 
 extern	const char diffh[], diff[], pr[];
 extern	const char *argv0;
