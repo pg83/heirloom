@@ -9,22 +9,22 @@
 
 /*
  * Copyright (c) 1987,1997, Prentice Hall All rights reserved.
- * 
+ *
  * Redistribution and use of the MINIX operating system in source and binary
  * forms, with or without modification, are permitted provided that the
  * following conditions are met:
- * 
+ *
  * Redistributions of source code must retain the above copyright notice, this
  * list of conditions and the following disclaimer.
- * 
+ *
  * Redistributions in binary form must reproduce the above copyright notice,
  * this list of conditions and the following disclaimer in the documentation
  * and/or other materials provided with the distribution.
- * 
+ *
  * Neither the name of Prentice Hall nor the names of the software authors or
  * contributors may be used to endorse or promote products derived from this
  * software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS, AUTHORS, AND CONTRIBUTORS
  * ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
@@ -116,7 +116,6 @@ static char ifmt_c[] = "-pc-d-b--nl-SD--";
 #include <term.h>
 #endif
 #else	/* USE_TERMCAP */
-#include <termcap.h>
 #endif	/* USE_TERMCAP */
 
 #ifdef	_AIX
@@ -747,7 +746,7 @@ dotflag(char *name)
 	if (*name++ != '.')
 		return 0;
 	switch (*name++) {
-	case 0:	
+	case 0:
 		return 'a';			/* "." */
 	case '.':
 		if (*name == 0)
@@ -939,8 +938,8 @@ printname(const char *name, struct file *f, int doit)
 
 	if (washere == 0 && tinfostat == 1) {
 		washere = 1;
-		Bold = tgetstr("md", &tptr);
-		Normal = tgetstr("me", &tptr);
+		Bold = "";
+		Normal = "";
 	}
 #endif	/* USE_TERMCAP */
 
@@ -993,8 +992,6 @@ printname(const char *name, struct file *f, int doit)
 			if (bold)
 				vidattr(A_BOLD);
 #else	/* USE_TERMCAP */
-			if (Bold)
-				tputs(Bold, 1, putchar);
 #endif	/* USE_TERMCAP */
 			printf(color);
 		}
@@ -1060,8 +1057,6 @@ printname(const char *name, struct file *f, int doit)
 		if (bold)
 			vidattr(A_NORMAL);
 #else	/* USE_TERMCAP */
-		if (Normal)
-			tputs(Normal, 1, putchar);
 #endif	/* USE_TERMCAP */
 		printf(fc_get(FC_NORMAL));
 	}
@@ -1627,12 +1622,6 @@ main(int argc, char **argv)
 #if !defined (USE_TERMCAP)
 		setupterm(NULL, 1, &tinfostat);
 #else	/* USE_TERMCAP */
-		{
-			char	buf[2048];
-			if ((cp = getenv("TERM")) != NULL)
-				if (tgetent(buf, cp) > 0)
-					tinfostat = 1;
-		}
 #endif	/* USE_TERMCAP */
 		field |= FL_STATUS;
 	}
@@ -1739,7 +1728,7 @@ main(int argc, char **argv)
 	if (present('f')) {
 		field &= ~(FL_LONG|FL_BYTIME|FL_BLOCKS|FL_MODE|FL_MARK|FL_DIR);
 		flags['o'] = flags['g'] = flags['l'] = flags['t'] = flags['s'] =
-			flags['r'] = flags['d'] = flags['F'] = flags['R'] = 
+			flags['r'] = flags['d'] = flags['F'] = flags['R'] =
 			flags['p'] = 0;
 		flags['a'] = flags['A'] = 1;
 		field |= FL_STATUS;
