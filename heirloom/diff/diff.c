@@ -74,6 +74,9 @@
 /*	Sccsid @(#)diff.c	1.24 (gritter) 3/27/05>	*/
 /*	from 4.3BSD diff.c 4.6 4/3/86	*/
 
+#undef EXTERN
+#define EXTERN
+
 #include "diff.h"
 #include <unistd.h>
 #include <locale.h>

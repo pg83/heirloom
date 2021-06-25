@@ -117,27 +117,27 @@ int	opt;
 				   lines and no trailing . */
 #define	D_UNIFIED	5	/* Unified diff */
 
-int	aflag;			/* diff binary files */
-int	tflag;			/* expand tabs on output */
-int	pflag;			/* show surrounding C function */
+EXTERN int	aflag;			/* diff binary files */
+EXTERN int	tflag;			/* expand tabs on output */
+EXTERN int	pflag;			/* show surrounding C function */
 
 /*
  * Algorithm related options
  */
-int	hflag;			/* -h, use halfhearted DIFFH */
-int	bflag;			/* ignore blanks in comparisons */
-int	wflag;			/* totally ignore blanks in comparisons */
-int	iflag;			/* ignore case in comparisons */
-int	Bflag;			/* ignore changes that consist of blank lines */
+EXTERN int	hflag;			/* -h, use halfhearted DIFFH */
+EXTERN int	bflag;			/* ignore blanks in comparisons */
+EXTERN int	wflag;			/* totally ignore blanks in comparisons */
+EXTERN int	iflag;			/* ignore case in comparisons */
+EXTERN int	Bflag;			/* ignore changes that consist of blank lines */
 
 /*
  * Options on hierarchical diffs.
  */
-int	lflag;			/* long output format with header */
-int	rflag;			/* recursively trace directories */
-int	sflag;			/* announce files which are same */
-int	Nflag;			/* write text of nonexistant files */
-const char	*start;		/* do file only if name >= this */
+EXTERN int	lflag;			/* long output format with header */
+EXTERN int	rflag;			/* recursively trace directories */
+EXTERN int	sflag;			/* announce files which are same */
+EXTERN int	Nflag;			/* write text of nonexistant files */
+EXTERN const char	*start;		/* do file only if name >= this */
 
 struct xclusion {
 	struct xclusion	*x_nxt;
@@ -147,31 +147,31 @@ struct xclusion {
 /*
  * Variables for -I D_IFDEF option.
  */
-int	wantelses;		/* -E */
-char	*ifdef1;		/* String for -1 */
-char	*ifdef2;		/* String for -2 */
-char	*endifname;		/* What we will print on next #endif */
-int	inifdef;
+EXTERN int	wantelses;		/* -E */
+EXTERN char	*ifdef1;		/* String for -1 */
+EXTERN char	*ifdef2;		/* String for -2 */
+EXTERN char	*endifname;		/* What we will print on next #endif */
+EXTERN int	inifdef;
 
 /*
  * Variables for -c context option.
  */
-int	context;		/* lines of context to be printed */
+EXTERN int	context;		/* lines of context to be printed */
 
 /*
  * State for exit status.
  */
-int	status;
-int	anychange;
-char	*tempfile1;		/* used when comparing against std input */
-char	*tempfile2;		/* used when comparing against std input */
+EXTERN int	status;
+EXTERN int	anychange;
+EXTERN char	*tempfile1;		/* used when comparing against std input */
+EXTERN char	*tempfile2;		/* used when comparing against std input */
 
 /*
  * Variables for diffdir.
  */
-char	**diffargv;		/* option list to pass to recursive diffs */
-int	recdepth;		/* recursion depth */
-jmp_buf	recenv;			/* jump stack on error */
+EXTERN char	**diffargv;		/* option list to pass to recursive diffs */
+EXTERN int	recdepth;		/* recursion depth */
+EXTERN jmp_buf	recenv;			/* jump stack on error */
 
 struct stackblk {
 	struct stackblk	*s_prev;
@@ -184,13 +184,13 @@ struct stackblk {
  * and padded with a '/', and then efile0 and efile1 point after
  * the '/'.
  */
-char	*file1, *file2, *efile1, *efile2;
+EXTERN char	*file1, *file2, *efile1, *efile2;
 struct	stat stb1, stb2;
 
 extern	const char diffh[], diff[], pr[];
 extern	const char *argv0;
 extern	const char *progname;
-int	mb_cur_max;
+EXTERN int	mb_cur_max;
 extern int	sysv3;
 
 /* diff.c */
