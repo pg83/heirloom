@@ -1,22 +1,22 @@
 /*
    Changes by Gunnar Ritter, Freiburg i. Br., Germany, December 2002.
-  
+
    Sccsid @(#)main.c	1.14 (gritter) 12/19/04>
  */
 /* UNIX(R) Regular Expression Tools
 
    Copyright (C) 2001 Caldera International, Inc.
-   
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to:
        Free Software Foundation, Inc.
@@ -66,7 +66,7 @@ int	mb_cur_max;	/* MB_CUR_MAX, for acceleration */
 
 extern const char badopen[];
 
-int main(int argc, unsigned char *argv[], unsigned char *envp[])
+int main(int argc, char *argv[], char *envp[])
 {
 	unsigned char *fs = NULL;
 	char label[MAXLABEL+1];	/* Space for the catalogue label */
