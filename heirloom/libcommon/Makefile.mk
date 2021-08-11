@@ -1,10 +1,10 @@
 all: libcommon.a
 
-OBJ = asciitype.o ib_alloc.o ib_close.o ib_free.o ib_getlin.o ib_getw.o \
+OBJ = pfmt_label.o sysv3.o asciitype.o ib_alloc.o ib_close.o ib_free.o ib_getlin.o ib_getw.o \
 	ib_open.o ib_popen.o ib_read.o ib_seek.o oblok.o sfile.o strtol.o \
 	getdir.o regexpr.o gmatch.o utmpx.o memalign.o pathconf.o \
 	sigset.o signal.o sigrelse.o sighold.o sigignore.o sigpause.o \
-	getopt.o pfmt.o vpfmt.o setlabel.o setuxlabel.o pfmt_label.o sysv3.o
+	getopt.o pfmt.o vpfmt.o setlabel.o setuxlabel.o
 libcommon.a: headers $(OBJ)
 	$(AR) -rv $@ $(OBJ)
 	$(RANLIB) $@
