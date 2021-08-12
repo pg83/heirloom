@@ -6,8 +6,9 @@ OBJ = pfmt_label.o sysv3.o asciitype.o ib_alloc.o ib_close.o ib_free.o ib_getlin
 	sigset.o signal.o sigrelse.o sighold.o sigignore.o sigpause.o \
 	getopt.o pfmt.o vpfmt.o setlabel.o setuxlabel.o
 libcommon.a: headers $(OBJ)
+	$(CC) -c writerr.c -o writerr.o
 	ld -r $(OBJ) -o obj.o
-	$(AR) -rv $@ obj.o
+	$(AR) -rv $@ writerr.o obj.o
 	$(RANLIB) $@
 
 CHECK: CHECK.c
