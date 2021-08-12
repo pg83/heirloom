@@ -39,6 +39,8 @@ struct direc* getdir(struct getdb* db, int* err) {
     struct dirent* ent;
     struct direc* res;
 
+    *err = 0;
+
     ent = readdir((DIR*)db);
 
     if (!ent) {
