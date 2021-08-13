@@ -266,8 +266,8 @@ rm(size_t pend, const char *base, const int olddir, int ssub, int level)
 			}
 			if (err) {
 				fprintf(stderr,
-					"%s: error reading directory %s\n",
-					progname, path);
+					"%s: error reading directory %s, %s\n",
+					progname, path, strerror(err));
 				errcnt |= 4;
 			}
 			if (olddir >= 0 && fchdir(olddir) < 0) {
